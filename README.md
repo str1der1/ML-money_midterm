@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # flaskSaas
 
 ![License](http://img.shields.io/:license-mit-blue.svg)
@@ -86,3 +87,7 @@ Read [this](http://flask.pocoo.org/docs/0.10/config/) for information on the pos
 ## License
 
 The MIT License (MIT). Please see the [license file](LICENSE) for more information.
+=======
+# ML-money_midterm
+Midterm_project_code
+>>>>>>> 5ec1c8df5c8eb011f262640b332eda35352ee5e1
