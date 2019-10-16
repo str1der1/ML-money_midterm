@@ -19,6 +19,8 @@ mail = Mail(app)
 # Setup the debug toolbar
 from flask_debugtoolbar import DebugToolbarExtension
 app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = True
+#AA Added this to stop capturing the redirects
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['DEBUG_TB_PROFILER_ENABLED'] = True
 toolbar = DebugToolbarExtension(app)
 

@@ -9,7 +9,21 @@
 	<h1 class="ui header">{{ title }}</h1>
 
 	{% if current_user.is_authenticated %}
-	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
+		<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
+		
+		<h2>Welcome to the Home page of the StockTalk tool.</h2>
+
+		<h2>
+			To see the results of your Stock sentiment analysis, you can click on the tag in the navbar next to account settings 			
+		</h2>
+	{% else %}
+		<h2 class="ui header">Hi Stranger.</h2>
+		
+		<h2>Welcome to the Home page of the StockTalk tool.</h2>
+
+		<h2>
+			To use the tool you need to sign up and login.    You can do so via the buttons in the top right. 
+		</h2>
 	{% endif %}
 
 {% endblock %}
