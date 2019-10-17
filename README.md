@@ -1,13 +1,17 @@
 <<<<<<< HEAD
-# Thanks to Max Halfords BoilerPlate code for Flask.  Modified for a Mid Term in Sirajs online Course 
+# Mid Term WebApp for Sirajs online Course 
 
+Thanks to Max Halfords BoilerPlate code for Flask.  Modified for a 
 ![License](http://img.shields.io/:license-mit-blue.svg)
-
 A fork of [Max Halford's](https://github.com/MaxHalford) [flask-boilerplate](https://github.com/MaxHalford/flask-boilerplate). 
-
 Please take a look at MAx's page for full details.   
 
-This fork has modified the BoilerPlate code and allowed pulling of Tweets from Twitter.    Performinign Sentiment Analysis on it using TextBlob. Producing the output in a table format.
+This fork has modified the MAx's code andbuilt on top by :
+- allowing a change of the stylings,
+- Allowing the pulling of Tweets from Twitter.    
+- Performing Sentiment analysis using TextBlob
+- Fixed the Payment and Premium user identification 
+- Producing Nice table output of sentiment with color coding.
 
 The code also allows account management.  Sign Up,  Sign in
 THe code also allows Payment options to identify as a Premium member vs a free member
