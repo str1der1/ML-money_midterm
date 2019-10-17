@@ -6,6 +6,7 @@
 		<form class="ui form" action="/user/stockTalkResults" method="post">
 			<h4 class="ui dividing header">Stock Talk Form</h4>
 	    	{{ m.render_field(form.search_keyword) }}
+	    	{{ m.render_field(form.count) }}
 		  	<button class="ui primary button" type="submit">Submit</button>
 		</form>
 	</div>

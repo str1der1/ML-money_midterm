@@ -2,28 +2,28 @@
 
 {% block content %}
 
-	<!-- <div class="ui form-user center raised very padded text container segment">
-		<form class="ui form" action="/user/sentimentAnalysis" method="post">
-			<h4 class="ui dividing header">Sentiment Analysis Form</h4>
-	    	{{ m.render_field(form.search_keyword) }}
-		  	<button class="ui primary button" type="submit">Submit</button>
-		</form>
-	</div> -->
-
-	<h2>This will be the output page for the Sentiment analysis</h2>
-
 	<!-- have 3 variables being returned here,  form,  results,  title -->
-	<ul>
-	{% for result in results %}
-    	<ul>
-			<li>
-				{{ result.tweet }}
-			</li>
-			<li>
-				{{ result.sentiment }}
-			</li>
-		</ul 
-    {% endfor %}
-	</ul>
+
+	<table style="width:100%" class="ui celled table">
+		<thead>
+			<tr>
+				<th class="left aligned" >Twitter Link</th>
+				<th class="left aligned" >Tweet</th>
+				<th class="right aligned">Sentiment rating</th>
+				<th class="right aligned">subjectivity rating</th>
+			</tr>
+		</thead>
+		{% for result in results %}
+		{% set list1 = result.tweet.split('https://') %}
+		{% set str_url = "https://" ~ list1[1] %}
+		<tr>
+		  <td class="left aligned"><a href='{{ str_url }}'> {{ str_url }} </a> </td>
+		  <td class="left aligned">{{ list1[0] }}</td>
+		  <td class="center aligned {% if result.sentiment.polarity> 0.5 %} positive"><i class="icon checkmark"></i> Positive {% else %} negative"><i class="icon close"></i> Negative {% endif %} </td>
+		  <td class="center aligned">{% if result.sentiment.subjectivity > 0.5 %} <i class="hand point up icon"></i> Subjective  {% else %}  Objective {% endif %} </td>
+		</tr>
+		{% endfor %}
+
+	</table> 
 	
 {% endblock %}

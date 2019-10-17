@@ -85,9 +85,10 @@ def stockTalkResults():
     # print(form)
 
     searchTerm = form.search_keyword.data
+    count = form.count.data
 
     # Call the tweepy API with the search keyword
-    results = tweepycode.tweep_run(searchTerm)
+    results = tweepycode.tweep_run(searchTerm, count)
 
     # print(results )
 

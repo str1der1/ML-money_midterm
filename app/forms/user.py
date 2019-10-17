@@ -83,3 +83,5 @@ class stockTalk(Form):
 
     search_keyword = TextField(validators=[Required(), Length(min=2)],
                      description='Keyword')
+    count = TextField(validators=[Required(), Length(min=1)],
+                     description='Count')
