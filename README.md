@@ -14,6 +14,54 @@ THe code also allows Payment options to identify as a Premium member vs a free m
 The code links in with Stripe to allow payments to be processed
 The code identifies if the customer is premium and offers additional fields like Tweet count override 
 
+
+# Screenshots
+
+### Landing page  (NON logged in )
+
+![Alt text](screenshots/LandingPage_nonauthenticated.png?raw=true "Landing Page (Not logged in)")
+
+### Sign up page
+
+![Alt text](screenshots/SignUp.png?raw=true "Landing Page (Sign up new USer)")
+
+### Sign In  
+
+![Alt text](screenshots/SignIn.png?raw=true "Sign in web Page")
+
+### Landign page as a Logged in user
+
+![Alt text](screenshots/LandingPage_Authenticated.png?raw=true "Landing Page (Signed in)")
+
+### Account Upgrade page  (Non Premium user )
+
+![Alt text](screenshots/Accounts_PremiumUpgrade.png?raw=true "Upgrade to Premium account page")
+
+### Main Feature -  Twitter Form  (Non Premium user)
+
+![Alt text](screenshots/FormFeaturePage_NonAuthenticatedUser.png?raw=true "Twitter Form Page (  reduced Features )")
+
+###  Results Page with sentiment Analysis
+
+![Alt text](screenshots/ResultsPage.png?raw=true "Sentiment Analysis Page")
+
+### Upgrade to Premium via Accounts page  (using Stripe)
+
+![Alt text](screenshots/PremiumUpgradePayPage.png?raw=true "Upgrade to Premium via Accounts page ")
+
+### Confirmd Premium Payment (using Stripe)
+
+![Alt text](screenshots/PaymentStripe.png?raw=true "Card Payment entry via Stripe API")
+
+### Main Feature -  Twitter Form  (Premium additonal Features)
+
+![Alt text](screenshots/FormFeaturePage_PremiumUser.png?raw=true "Twitter Form with additional Count Feature")
+
+### Landing page  (Premium)
+
+![Alt text](screenshots/LandingPage_AuthenticatedPremium.png?raw=true "Landing Page for Premium users")
+
+
 ## Setup   (Following Max's instructions)
 
 ### Vanilla
