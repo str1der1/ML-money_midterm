@@ -10,17 +10,16 @@ from app.toolbox import email
 # Add the reference to the tweepy code 
 from app.toolbox import tweepycode
 
-
 # Setup Stripe integration
 import stripe
 import json
 from json import dumps
 
+# AA Updated for Stripe
 stripe_keys = {
-	'secret_key': "sk_test_GvpPOs0XFxeP0fQiWMmk6HYe",
-	'publishable_key': "pk_test_UU62FhsIB6457uPiUX6mJS5x"
+	'secret_key': app.config['STRIPE_SKT'],
+	'publishable_key': app.config['STRIPE_PUB']
 }
-
 stripe.api_key = stripe_keys['secret_key']
 
 # Serializer for generating random tokens
@@ -73,7 +72,6 @@ def signup():
 def stockTalk():
     # AA: Set up the form fields
     form = user_forms.stockTalk()
-
     # For a GET,  call the Signup page
     return render_template('user/stockTalk.html', form=form, title='Sentiment Analysis Result')
 
@@ -83,15 +81,10 @@ def stockTalkResults():
     # AA: Use the StockTalkForm from earlier.
     form = user_forms.stockTalk()
     # print(form)
-
     searchTerm = form.search_keyword.data
     count = form.count.data
-
     # Call the tweepy API with the search keyword
     results = tweepycode.tweep_run(searchTerm, count)
-
-    # print(results )
-
     # For a GET,  call the Signup page
     return render_template('user/stockTalkResults.html', form=form, results=results, title='Sentiment Analysis Result')
 
@@ -202,9 +195,13 @@ def reset(token):
 @login_required
 def pay():
     user = models.User.query.filter_by(email=current_user.email).first()
-    if user.paid == 0:
+    # print ("In the PAY Route of the code")
+    # print ("User Paid setting is : " )
+    print (user.paid)
+    if user.paid == None:
     	return render_template('user/buy.html', key=stripe_keys['publishable_key'], email=current_user.email)
-    return "You already paid."
+    else:
+        return "You already paid."
 
 @app.route('/user/charge', methods=['POST'])
 @login_required

@@ -19,7 +19,7 @@
 		<tr>
 		  <td class="left aligned"><a href='{{ str_url }}'> {{ str_url }} </a> </td>
 		  <td class="left aligned">{{ list1[0] }}</td>
-		  <td class="center aligned {% if result.sentiment.polarity> 0.5 %} positive"><i class="icon checkmark"></i> Positive {% else %} negative"><i class="icon close"></i> Negative {% endif %} </td>
+		  <td class="center aligned {% if result.sentiment.polarity> 0.75 %} positive"><i class="icon checkmark"></i> Positive {% elif result.sentiment.polarity> 0.20 %} "> inconclusive  {% else %} negative"><i class="icon close"></i> Negative {% endif %} </td>
 		  <td class="center aligned">{% if result.sentiment.subjectivity > 0.5 %} <i class="hand point up icon"></i> Subjective  {% else %}  Objective {% endif %} </td>
 		</tr>
 		{% endfor %}

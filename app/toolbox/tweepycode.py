@@ -4,12 +4,15 @@ from textblob import TextBlob, Word, Blobber
 from textblob.classifiers import NaiveBayesClassifier
 from textblob.taggers import NLTKTagger
 
-# firstly_authentication
-consumer_key= 'CONSUMER_KEY'
-consumer_secret= 'CONSUMER_SECRET'
+# To automatically load the init variables
+from app import app
 
-access_token='ACCESS_TOKEN'
-access_token_secret='ACCESS_SECRET'
+# firstly_authentication
+consumer_key= app.config['TWTR_CONSUMER_KEY']
+consumer_secret= app.config['TWTR_CONSUMER_SCRT']
+
+access_token=app.config['TWTR_ACCESS_TOKEN']
+access_token_secret=app.config['TWTR_ACCESS_TOKEN_SECRET']
 
 class tweet_sentiment_result:
     def __init__(self, tweet, sentiment):

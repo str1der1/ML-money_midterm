@@ -6,6 +6,84 @@
 
 {% block content %}
 
-    <h1 class="ui header">Hi {{ current_user.full_name }}!</h1>
+    <h1 class="ui block header">Hi {{ current_user.full_name }}!</h1>
+
+    {% if current_user.paid != 1 %}
+
+    <div class="ui message">
+            <div class="header">
+                Pricing
+            </div>
+            <p>Pricing options available for our customers.</p>
+    </div>
+
+    <div class="ui three cards">
+
+        <div class="ui card">
+                <div class="content">
+                        <div class="header">Free</div>
+                </div>
+                <div class="content">
+                <h4 class="ui sub header">Activity</h4>
+                <div class="ui small feed">
+                        <div class="event">
+                        <div class="content">
+                            <div class="summary">
+                                    <li>Search results limited to 15</li>
+                                    <li>10 searches per day </li>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                </div>
+                <div class="extra content">
+                <button class="ui button">
+                    <form action="/index">
+                        <input type="submit" value="Continue for free" />
+                    </form>                    
+                </button>
+                </div>
+        </div>
+
+
+        <div class="ui card">
+                <div class="content">
+                        <div class="header">Pro</div>
+                </div>
+                <div class="content">
+                <h4 class="ui sub header">Activity</h4>
+                <div class="ui small feed">
+                        <div class="event">
+                        <div class="content">
+                            <div class="summary">
+                                    <li>Search results expandable up to 200</li>
+                                    <li>unlimited searches per day </li>
+                                    <li>Priority email support</li>
+                                    <li>Help center access</li>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                </div>
+                <div class="extra content">
+                <button class="ui button">
+                        <form action="/user/pay">
+                            <input type="submit" value="Go To purchase page" />
+                        </form>                    
+                </button>
+                </div>
+        </div>
+    </div>
+
+    {% else %}
+    
+    <div class="ui message">
+            <div class="header">
+                Thanks
+            </div>
+            <p>You are already one of our premium customer.</p>
+    </div>
+
+    {% endif %}
 
 {% endblock %}

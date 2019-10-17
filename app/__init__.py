@@ -2,8 +2,11 @@ from flask import Flask
 
 app = Flask(__name__)
 
+app = Flask(__name__, instance_relative_config=True)
 # Setup the app with the config.py file
 app.config.from_object('app.config')
+# Setup the app with the config.py file for specific keys  -- USe your own here for STRIPE and Tweep
+app.config.from_pyfile('config_aa_keys.py')
 
 # Setup the logger
 from app.logger_setup import logger
