@@ -2,9 +2,15 @@ from flask import (Blueprint, render_template, redirect, request, url_for,
                    abort, flash)
 from flask.ext.login import login_user, logout_user, login_required, current_user
 from itsdangerous import URLSafeTimedSerializer
+
+# All local python files
 from app import app, models, db
 from app.forms import user as user_forms
 from app.toolbox import email
+# Add the reference to the tweepy code 
+from app.toolbox import tweepycode
+
+
 # Setup Stripe integration
 import stripe
 import json
@@ -23,10 +29,13 @@ ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 # Create a user blueprint
 userbp = Blueprint('userbp', __name__, url_prefix='/user')
 
-
+# This is used for both a GET and a POST 
 @userbp.route('/signup', methods=['GET', 'POST'])
 def signup():
+    # AA: Set up the DB
     form = user_forms.SignUp()
+   
+    # AA: IF form has been submitted i.e. POST then add into DB
     if form.validate_on_submit():
         # Create a user who hasn't validated his email address
         user = models.User(
@@ -51,11 +60,39 @@ def signup():
                                confirm_url=confirmUrl)
         # Send the email to user
         email.send(user.email, subject, html)
-        # Send back to the home page
+        # Send back to the home page with a FLASH message 
         flash('Check your emails to confirm your email address.', 'positive')
+        # AA:  On POST of information,  go back to Index
         return redirect(url_for('index'))
+    
+    # For a GET,  call the Signup page
     return render_template('user/signup.html', form=form, title='Sign up')
 
+# This is used for both a GET only - For asking the keyword to search for   
+@userbp.route('/stockTalk', methods=['GET', 'POST'])
+def stockTalk():
+    # AA: Set up the form fields
+    form = user_forms.stockTalk()
+
+    # For a GET,  call the Signup page
+    return render_template('user/stockTalk.html', form=form, title='Sentiment Analysis Result')
+
+# This is used for both a GET only - For display the results of the sentiment analysis
+@userbp.route('/stockTalkResults', methods=['GET', 'POST'])
+def stockTalkResults():
+    # AA: Use the StockTalkForm from earlier.
+    form = user_forms.stockTalk()
+    # print(form)
+
+    searchTerm = form.search_keyword.data
+
+    # Call the tweepy API with the search keyword
+    results = tweepycode.tweep_run(searchTerm)
+
+    # print(results )
+
+    # For a GET,  call the Signup page
+    return render_template('user/stockTalkResults.html', form=form, results=results, title='Sentiment Analysis Result')
 
 @userbp.route('/confirm/<token>', methods=['GET', 'POST'])
 def confirm(token):

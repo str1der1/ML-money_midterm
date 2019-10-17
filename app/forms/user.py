@@ -76,3 +76,10 @@ class SignUp(Form):
         EqualTo('confirm', message='Passwords must match.')
     ], description='Password')
     confirm = PasswordField(description='Confirm password')
+
+class stockTalk(Form):
+
+    ''' Sentiment Analysis Form. '''
+
+    search_keyword = TextField(validators=[Required(), Length(min=2)],
+                     description='Keyword')

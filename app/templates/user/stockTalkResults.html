@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<!-- <div class="ui form-user center raised very padded text container segment">
+		<form class="ui form" action="/user/sentimentAnalysis" method="post">
+			<h4 class="ui dividing header">Sentiment Analysis Form</h4>
+	    	{{ m.render_field(form.search_keyword) }}
+		  	<button class="ui primary button" type="submit">Submit</button>
+		</form>
+	</div> -->
+
+	<h2>This will be the output page for the Sentiment analysis</h2>
+
+	<!-- have 3 variables being returned here,  form,  results,  title -->
+	<ul>
+	{% for result in results %}
+    	<ul>
+			<li>
+				{{ result.tweet }}
+			</li>
+			<li>
+				{{ result.sentiment }}
+			</li>
+		</ul 
+    {% endfor %}
+	</ul>
+	
+{% endblock %}
