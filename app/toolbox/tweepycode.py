@@ -5,11 +5,11 @@ from textblob.classifiers import NaiveBayesClassifier
 from textblob.taggers import NLTKTagger
 
 # firstly_authentication
-consumer_key= '205O7fmxsgEUyNbNpYUYna2fX'
-consumer_secret= 'HCKRUMEmFI7Z9ZUg0kI9KvpQLuGw12KQih8wQsvzd9P8bLGA7X'
+consumer_key= 'CONSUMER_KEY'
+consumer_secret= 'CONSUMER_SECRET'
 
-access_token='59156248-4LVo0ODqVaxeFJqzdCK6T4gDwkN1lFqp1ZhBVeqbx'
-access_token_secret='8JbheOmkWPLnhzaDlxBuO3yenMj388kfJlWQlrlaO1kXB'
+access_token='ACCESS_TOKEN'
+access_token_secret='ACCESS_SECRET'
 
 class tweet_sentiment_result:
     def __init__(self, tweet, sentiment):
